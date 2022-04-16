@@ -1,9 +1,19 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const seenNumbers = new Set(); // initialize an empty Set
+  for (const number of array) {
+    const complement = target - number;
+    //.has method returns true if a number exists in a set
+    if (seenNumbers.has(complement)) return true;
+  
+    //use set.add method to add number to array
+    seenNumbers.add(number);
+  }
+  return false;
 }
 
 /* 
   Write the Big O time complexity of your function here
+  O(n)
 */
 
 /* 
@@ -12,6 +22,10 @@ function hasTargetSum(array, target) {
 
 /*
   Add written explanation of your solution here
+  loop through array
+  subtract current array value from target to get complement value
+  check if complement number exists in our set if yes we return true
+  add the current array value to our set
 */
 
 // You can run `node index.js` to view these console logs
